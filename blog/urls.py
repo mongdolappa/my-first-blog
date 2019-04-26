@@ -1,11 +1,15 @@
 from django.urls import path
-#django.urls행에서 장고 함수인 path를 가져왔어요.
 from . import views
 #blog 애플리케이션에서 사용할 모든 views를 가져왔어요.
+
+from django.urls import path
+from . import views
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('post/new/', views.post_new, name='post_new'),
 ]
 # 이제 post_list라는 view가 루트 URL에 할당되었습니다. ''
 # 루트 디렉토리에 View의 post_list함수가 (이 안에 가르키는 html실행) 할당됨.
