@@ -10,6 +10,10 @@ urlpatterns = [
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('post/new/', views.post_new, name='post_new'),
+    path('drafts/', views.post_draft_list, name='post_draft_list'),
+    path('post/<pk>/publish/', views.post_publish, name='post_publish'),
+    #url(r'^post/(?P<pk>\d+)/publish/$', views.post_publish, name='post_publish'),
+    path('post/<pk>/remove/', views.post_remove, name='post_remove'),
 ]
 # 이제 post_list라는 view가 루트 URL에 할당되었습니다. ''
 # 루트 디렉토리에 View의 post_list함수가 (이 안에 가르키는 html실행) 할당됨.

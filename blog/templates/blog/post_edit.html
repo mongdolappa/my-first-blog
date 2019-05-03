@@ -2,8 +2,8 @@
 
 {% block content %}
     <h1>New post</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+    <form method="POST" class="post-form">{% csrf_token %} <!-- 보안상 중요해-->
+        {{ form.as_p }} <!-- form.as_p로 폼을 보이게 합니다.-->
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}

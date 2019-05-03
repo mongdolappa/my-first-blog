@@ -13,15 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.urls import path, include
+from django.contrib import admin
 
-from django.contrib import admin
-from django.urls import path, include
-#from django.urls 행을 찾아 import 뒤에 include 함수를 추가하세요.
+from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
+    path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
     path('', include('blog.urls')),
-    #지금 장고는 http://127.0.0.1:8000/ 로 들어오는 모든 접속 요청을 blog.urls로 전송해 추가 명령을 찾을 거예요.
 ]
